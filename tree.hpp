@@ -60,14 +60,46 @@ class BinarySearchTree
     }
     void insert(T data)
     {
-        if (root == null)
+        if (root == NULL)
         {
-            Node<T> newNode = new Node<T>(data);
+            Node<T> *newNode = new Node<T>(data);
             root = newNode;
         }
         else
         {
-            insertToNode(root,data);
+            insertToNode(root, data);
         }
+    }
+
+    void inorder(Node<T> *node)
+    {
+        if (node == NULL)
+            return;
+
+        inorder(node->left);
+        cout << node->data << " ";
+        inorder(node->right);
+    }
+    void preorder(Node<T> *node)
+    {
+        if (node == NULL)
+            return;
+
+        cout << node->data << " ";
+        inorder(node->left);
+        inorder(node->right);
+    }
+    void postorder(Node<T> *node)
+    {
+        if (node == NULL)
+            return;
+
+        inorder(node->left);
+        inorder(node->right);
+        cout << node->data << " ";
+    }
+    Node<T> *getRoot()
+    {
+        return root;
     }
 };

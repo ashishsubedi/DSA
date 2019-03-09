@@ -1,10 +1,13 @@
-#include "doublyLinkedList.hpp"
+//#include "doublyLinkedList.hpp"
+#include "tree.hpp"
+void testBST();
 
 int main()
 {
+    testBST();
 }
 
-void testDoublyLinkedList()
+/* void testDoublyLinkedList()
 {
     DoublyLinkedList<int> list;
     list.insertFirst(5);
@@ -21,4 +24,21 @@ void testDoublyLinkedList()
     cout << list.getFront() << endl;
     list.deleteAtPosition(2);
     list.printAll();
+} */
+
+void testBST()
+{
+    BinarySearchTree<int> tree;
+    tree.insert(25);
+    tree.insert(20);
+    tree.insert(230);
+    tree.insert(5);
+    tree.insert(28);
+    tree.inorder(tree.getRoot());
+    cout<<endl;
+    tree.preorder(tree.getRoot());
+    cout<<endl;
+    tree.postorder(tree.getRoot());
+    cout<<endl;
+
 }
