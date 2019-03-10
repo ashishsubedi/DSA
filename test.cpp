@@ -35,10 +35,25 @@ void testBST()
     tree.insert(5);
     tree.insert(28);
     tree.inorder(tree.getRoot());
-    cout<<endl;
+    cout << endl;
     tree.preorder(tree.getRoot());
-    cout<<endl;
+    cout << endl;
     tree.postorder(tree.getRoot());
-    cout<<endl;
+    cout << endl;
 
+    if (tree.find(28) != NULL)
+    {
+        cout << "Found data" << endl;
+    }
+    else
+    {
+        cout << "RETURNED NULL" << endl;
+    }
+    tree.deleteByData(25);
+    tree.inorder(tree.getRoot());
+    cout << endl;
+    tree.preorder(tree.getRoot());
+    cout << endl;
+    tree.postorder(tree.getRoot());
+    cout << endl;
 }
