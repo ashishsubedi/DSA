@@ -1,10 +1,11 @@
 //#include "doublyLinkedList.hpp"
-#include "tree.hpp"
+//#include "tree.hpp"
+#include "graph_adj_mat.hpp"
 void testBST();
-
+void testGraph();
 int main()
 {
-    testBST();
+    testGraph();
 }
 
 /* void testDoublyLinkedList()
@@ -26,7 +27,7 @@ int main()
     list.printAll();
 } */
 
-void testBST()
+/* void testBST()
 {
     BinarySearchTree<int> tree;
     tree.insert(25);
@@ -56,4 +57,23 @@ void testBST()
     cout << endl;
     tree.postorder(tree.getRoot());
     cout << endl;
+} */
+
+void testGraph()
+{
+    vector<Vertex> vertices;
+    Vertex v1("3");
+    Vertex v2("1");
+    Vertex v3("2");
+    vertices.push_back(v1);
+    vertices.push_back(v2);
+    vertices.push_back(v3);
+
+    Graph graph(&vertices);
+    cout << "Graph Created" << endl;
+
+    graph.createEdge(vertices[0], vertices[1]);
+    cout << "Graph Edge Created" << endl;
+    graph.printMatrix();
+    cout << "Graph Printed" << endl;
 }
