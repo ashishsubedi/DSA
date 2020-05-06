@@ -127,7 +127,7 @@ void Print(){
     printf("\n");
 }
 
-int main(){
+/* int main(){
     head = NULL;
     printf("length:%d\n",length);
 
@@ -213,4 +213,4 @@ int main(){
    
 
     return 0;
-}
+} */

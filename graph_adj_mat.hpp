@@ -1,7 +1,11 @@
-#include <iostream>
-#include <vector>
+#include "stack.hpp"
 
 using namespace std;
+///
+//
+//This is TOO BROKEN TO DO ANYTHING??
+//
+//
 
 class Vertex
 {
@@ -50,7 +54,7 @@ class Graph
 	}
 	void printMatrix()
 	{
-		cout << "Here" << endl;
+		
 		for (int i = 0; i < vertices.size(); i++)
 		{
 			for (int j = 0; j < vertices.size(); j++)
@@ -59,5 +63,19 @@ class Graph
 			}
 			cout << endl;
 		}
+	}
+	void BFS(){
+
+	}
+	void DFS(){
+		Stack<Vertex> stack;
+		Vertex start = vertices[0];
+		for(int i=0; i< vertices.size(); i++){
+			for(int j = 0; j <= vertices.size()/2; j++)
+			{
+				//IDK WHAT I AM DOING LOL. Please use Adjacancy list
+			}
+		}
+		
 	}
 };

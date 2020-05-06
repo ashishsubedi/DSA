@@ -1,11 +1,13 @@
 //#include "doublyLinkedList.hpp"
 //#include "tree.hpp"
-#include "graph_adj_mat.hpp"
+// #include "graph_adj_mat.hpp"
+#include "graph_adj_list.hpp"
 void testBST();
 void testGraph();
+void testGraphAdjList();
 int main()
 {
-    testGraph();
+    testGraphAdjList();
 }
 
 /* void testDoublyLinkedList()
@@ -59,7 +61,7 @@ int main()
     cout << endl;
 } */
 
-void testGraph()
+/* void testGraph()
 {
     vector<Vertex> vertices;
     Vertex v1("3");
@@ -76,4 +78,29 @@ void testGraph()
     cout << "Graph Edge Created" << endl;
     graph.printMatrix();
     cout << "Graph Printed" << endl;
+} */
+
+void testGraphAdjList()
+{
+    vector<Vertex*> vertices;
+    Vertex v1("1");
+    Vertex v2("2");
+    Vertex v3("3");
+    Vertex v4("4");
+    Vertex v5("5");
+    vertices.push_back(&v1);
+    vertices.push_back(&v2);
+    vertices.push_back(&v3);
+    vertices.push_back(&v4);
+    vertices.push_back(&v5);
+
+    Graph graph (vertices);
+    cout<<"Graph Created"<<endl;
+    graph.createEdge(&v1,&v2);
+    graph.createEdge(&v2,&v3);
+    graph.createEdge(&v2,&v5);
+    graph.createEdge(&v3,&v4);
+    graph.createEdge(&v4,&v5);
+
+    graph.BFS(vertices[0]);
 }
