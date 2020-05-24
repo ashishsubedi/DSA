@@ -68,6 +68,37 @@ class Graph:
             self.MST = spanningTree
         return spanningTree
 
+    def DFS(self, startVertex, parent=None):
+        visited = set()
+        q = [(startVertex, parent)]
+        spanningTree = Graph()
+        routingTable = {}
+
+        while len(q) > 0:
+            pair = q.pop()
+            v = pair[0]
+            p = pair[1]
+
+            if(v not in visited):
+                routingTable[v] = p
+                visited.add(v)
+                if p is not None:
+                    if(v not in spanningTree.vertices):
+                        spanningTree.addVertices([v], [p])
+                    else:
+                        spanningTree.addEdges(v, [p])
+                    if(p not in spanningTree.vertices):
+                        spanningTree.addVertices([p], [v])
+                    else:
+                        spanningTree.addEdges(p, [v])
+                for n in self.neighbours(v):
+                    if(n not in visited):
+                        q.append((n, v))
+
+        self.routingTable = routingTable
+
+        return spanningTree
+
 
 g = Graph()
 g.addVertices([1, 2, 3, 4, 5, 6, 7])
@@ -79,5 +110,7 @@ g.addEdges(5, [2, 4])
 g.addEdges(6, [3, 4])
 
 mst = g.BFS(4)
+st = g.DFS(4)
 print(g.routingTable)
 print(mst.vertices)
+print(st.vertices)
