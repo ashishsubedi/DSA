@@ -72,7 +72,6 @@ class Graph:
         visited = set()
         q = [(startVertex, parent)]
         spanningTree = Graph()
-        routingTable = {}
 
         while len(q) > 0:
             pair = q.pop()
@@ -80,7 +79,7 @@ class Graph:
             p = pair[1]
 
             if(v not in visited):
-                routingTable[v] = p
+
                 visited.add(v)
                 if p is not None:
                     if(v not in spanningTree.vertices):
@@ -94,8 +93,6 @@ class Graph:
                 for n in self.neighbours(v):
                     if(n not in visited):
                         q.append((n, v))
-
-        self.routingTable = routingTable
 
         return spanningTree
 
